@@ -66,18 +66,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// SOCL dark theme colors
+				// Classic dark theme colors
 				socl: {
-					background: '#1A1F2C',
+					background: '#121212',
 					text: '#FFFFFF',
-					muted: '#8A8F9C',
-					buttonBg: '#8B5CF6',
+					muted: '#AAADB0',
+					buttonBg: '#3A3F52',
 					buttonText: '#FFFFFF',
-					accent: '#D6BCFA',
-					cardBg: '#252A3A',
-					darkAccent: '#7E69AB',
-					highlightBg: '#2D3346',
-					border: '#3A3F52',
+					accent: '#E2D1C3',
+					cardBg: '#1E1E1E',
+					darkAccent: '#9F9EA1',
+					highlightBg: '#222222',
+					border: '#333333',
 				}
 			},
 			borderRadius: {
@@ -101,11 +101,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-soft': {
+					'0%, 100%': { opacity: 1 },
+					'50%': { opacity: 0.8 }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-soft': 'pulse-soft 4s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-radial-soft': 'radial-gradient(circle, var(--tw-gradient-stops))',
+				'dotted-pattern': 'url("/dotted-pattern.svg")',
+				'noise': 'url("/noise.png")'
 			}
 		}
 	},

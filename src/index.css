@@ -137,4 +137,20 @@ html {
   .glass-card {
     @apply bg-socl-cardBg/80 backdrop-blur-sm border border-socl-border/30;
   }
+  
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
+  }
+  
+  .animate-float {
+    @apply animate-[float_6s_ease-in-out_infinite];
+  }
+  
+  .animate-pulse-soft {
+    @apply animate-[pulse-soft_4s_ease-in-out_infinite];
+  }
 }
