@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -65,12 +66,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// SOCL specific colors
+				// SOCL dark theme colors
 				socl: {
-					background: '#fbe1cd',
-					text: '#862626',
-					buttonBg: '#ffffff',
-					buttonText: '#005cbf',
+					background: '#1A1F2C',
+					text: '#FFFFFF',
+					muted: '#8A8F9C',
+					buttonBg: '#8B5CF6',
+					buttonText: '#FFFFFF',
+					accent: '#D6BCFA',
+					cardBg: '#252A3A',
+					darkAccent: '#7E69AB',
+					highlightBg: '#2D3346',
+					border: '#3A3F52',
 				}
 			},
 			borderRadius: {

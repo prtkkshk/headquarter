@@ -11,7 +11,8 @@ import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-socl-background text-socl-text overflow-hidden">
+      <div className="fixed inset-0 bg-[url('/grid-pattern.svg')] bg-repeat opacity-[0.015] pointer-events-none"></div>
       <Header />
       <main>
         <HeroSection />

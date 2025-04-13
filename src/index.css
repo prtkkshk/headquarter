@@ -123,10 +123,18 @@ html {
   }
   
   .body-text {
-    @apply text-lg leading-relaxed;
+    @apply text-lg leading-relaxed text-socl-text/90;
   }
   
   .cta-button {
-    @apply bg-socl-buttonBg text-socl-buttonText font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-2 border-socl-buttonText;
+    @apply bg-socl-buttonBg text-socl-buttonText font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 hover:shadow-lg transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
+  }
+
+  .glass-card {
+    @apply bg-socl-cardBg/80 backdrop-blur-sm border border-socl-border/30;
   }
 }

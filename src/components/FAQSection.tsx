@@ -38,32 +38,36 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="section-spacing">
-      <div className="container-custom">
+    <section id="faq" className="section-spacing relative">
+      <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto">
-          <h2 className="heading-2 text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="heading-2 text-center mb-12 text-socl-accent">Frequently Asked Questions</h2>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border border-socl-text/10 rounded-lg overflow-hidden bg-white/60"
+                className={`glass-card rounded-lg overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'shadow-lg border border-socl-accent/30' : 'border border-socl-border'
+                }`}
               >
                 <button
                   className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
                   onClick={() => toggleFAQ(index)}
                 >
-                  <span className="font-semibold">{faq.question}</span>
+                  <span className={`font-semibold ${openIndex === index ? 'text-socl-accent' : 'text-socl-text'}`}>
+                    {faq.question}
+                  </span>
                   {openIndex === index ? (
-                    <ChevronUp size={20} />
+                    <ChevronUp size={20} className="text-socl-accent" />
                   ) : (
-                    <ChevronDown size={20} />
+                    <ChevronDown size={20} className="text-socl-muted" />
                   )}
                 </button>
                 
                 {openIndex === index && (
                   <div className="px-6 pb-4">
-                    <p>{faq.answer}</p>
+                    <p className="text-socl-muted">{faq.answer}</p>
                   </div>
                 )}
               </div>
