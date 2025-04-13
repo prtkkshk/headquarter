@@ -1,7 +1,6 @@
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface FAQItem {
   question: string;
@@ -32,35 +31,50 @@ const FAQSection = () => {
     }
   ];
 
-  const sectionRef = useRef<HTMLElement>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section id="faq" className="section-spacing relative" ref={sectionRef}>
+    <section id="faq" className="section-spacing relative">
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-socl-accent/5 opacity-30"></div>
-      <div className="absolute -top-40 left-1/3 w-[300px] h-[300px] bg-gradient-radial-soft from-socl-accent/10 to-transparent blur-3xl"></div>
+      <div className="absolute -top-40 left-1/3 w-[300px] h-[300px] bg-gradient-radial-soft from-socl-accent/5 to-transparent blur-3xl"></div>
       
       <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto">
-          <h2 className="heading-2 text-center mb-12 text-gradient reveal">Frequently Asked Questions</h2>
+          <h2 className="heading-2 text-center mb-12 text-gradient">Frequently Asked Questions</h2>
           
           <div className="space-y-4">
-            <Accordion type="single" collapsible className="space-y-6">
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`} 
-                  className={`glass-effect rounded-lg overflow-hidden backdrop-blur-md border-socl-border/20 reveal`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className={`glass-effect rounded-lg overflow-hidden transition-all duration-300 backdrop-blur-md ${
+                  openIndex === index ? 'shadow-lg border border-socl-accent/20' : 'border border-socl-border/10'
+                }`}
+              >
+                <button
+                  className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                  onClick={() => toggleFAQ(index)}
                 >
-                  <AccordionTrigger className="px-6 py-4 text-left font-semibold hover:text-socl-accent hover:no-underline transition-all">
+                  <span className={`font-semibold ${openIndex === index ? 'text-socl-accent' : 'text-socl-text'}`}>
                     {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-socl-muted">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+                  </span>
+                  {openIndex === index ? (
+                    <ChevronUp size={20} className="text-socl-accent" />
+                  ) : (
+                    <ChevronDown size={20} className="text-socl-muted" />
+                  )}
+                </button>
+                
+                {openIndex === index && (
+                  <div className="px-6 pb-4 animate-accordion-down">
+                    <p className="text-socl-muted">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>

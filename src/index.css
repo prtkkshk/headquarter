@@ -93,8 +93,6 @@
 
   body {
     @apply bg-socl-background text-socl-text font-inter antialiased;
-    background-image: radial-gradient(circle at 30% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 50%), 
-                      radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
   }
 }
 
@@ -109,19 +107,19 @@ html {
   }
   
   .section-spacing {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-20;
   }
   
   .heading-1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
   }
   
   .heading-2 {
-    @apply text-3xl md:text-4xl font-bold mb-6 tracking-tight;
+    @apply text-3xl md:text-4xl font-bold mb-6;
   }
   
   .heading-3 {
-    @apply text-2xl md:text-3xl font-bold mb-4 tracking-tight;
+    @apply text-2xl md:text-3xl font-bold mb-4;
   }
   
   .body-text {
@@ -129,31 +127,23 @@ html {
   }
   
   .cta-button {
-    @apply bg-socl-accent text-socl-text font-semibold py-3 px-8 rounded-lg shadow-glow-sm hover:shadow-glow-md transition-glow duration-300 hover:-translate-y-1;
-  }
-
-  .secondary-button {
-    @apply bg-socl-buttonBg text-socl-text font-semibold py-3 px-8 rounded-lg border border-socl-border/50 hover:border-socl-accent/50 hover:bg-socl-highlightBg transition-all duration-300 hover:-translate-y-1;
+    @apply bg-socl-buttonBg text-socl-buttonText font-semibold py-3 px-8 rounded-lg shadow-md hover:opacity-90 hover:shadow-lg transition-all duration-300;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-card;
+    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
   }
 
   .glass-card {
-    @apply bg-socl-cardBg/80 backdrop-blur-sm border border-socl-border/30 hover:border-socl-border/50 transition-all duration-300;
+    @apply bg-socl-cardBg/80 backdrop-blur-sm border border-socl-border/30;
   }
   
   .glass-effect {
-    @apply backdrop-blur-md bg-socl-highlightBg/80 border border-socl-border/20 hover:border-socl-border/40 transition-all duration-300;
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
   }
   
   .text-gradient {
     @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
-  }
-
-  .text-gradient-blue {
-    @apply bg-gradient-to-r from-socl-accent via-socl-accent to-socl-darkAccent bg-clip-text text-transparent;
   }
   
   .animate-float {
@@ -163,41 +153,4 @@ html {
   .animate-pulse-soft {
     @apply animate-[pulse-soft_4s_ease-in-out_infinite];
   }
-
-  .section-animate {
-    @apply opacity-0;
-  }
-
-  .glow-effect {
-    @apply relative;
-  }
-
-  .glow-effect::before {
-    @apply content-[''] absolute -inset-0.5 bg-gradient-to-r from-socl-accent/50 to-socl-darkAccent/50 rounded-lg blur opacity-50 transition-opacity duration-300 -z-10;
-  }
-
-  .glow-effect:hover::before {
-    @apply opacity-100;
-  }
-}
-
-/* Smooth scrolling observer animation */
-.reveal {
-  @apply opacity-0 translate-y-10 transition-all duration-700 ease-out;
-}
-
-.reveal.active {
-  @apply opacity-100 translate-y-0;
-}
-
-.reveal-delay-200 {
-  transition-delay: 200ms;
-}
-
-.reveal-delay-400 {
-  transition-delay: 400ms;
-}
-
-.reveal-delay-600 {
-  transition-delay: 600ms;
 }
