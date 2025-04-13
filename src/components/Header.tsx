@@ -22,28 +22,25 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-socl-background/80 backdrop-blur-md shadow-lg py-3" : "py-5"
+        isScrolled ? "bg-socl-background/95 backdrop-blur-sm shadow-lg py-3" : "py-5"
       }`}
     >
       <div className="container-custom flex justify-between items-center">
-        <div className="text-2xl font-bold text-gradient">SOCL</div>
+        <div className="text-2xl font-bold text-socl-accent">SOCL</div>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#how-it-works" className="text-socl-text/80 hover:text-socl-accent transition-colors">How It Works</a>
           <a href="#features" className="text-socl-text/80 hover:text-socl-accent transition-colors">Features</a>
           <a href="#faq" className="text-socl-text/80 hover:text-socl-accent transition-colors">FAQ</a>
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-socl-accent/20 to-transparent rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300"></div>
-            <a 
-              href="https://tally.so/r/mRrZ5K" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="relative cta-button"
-            >
-              Join the Waitlist
-            </a>
-          </div>
+          <a 
+            href="https://tally.so/r/mRrZ5K" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="cta-button"
+          >
+            Join the Waitlist
+          </a>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -57,7 +54,7 @@ const Header = () => {
       
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-socl-cardBg/90 backdrop-blur-md shadow-lg py-4">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-socl-cardBg shadow-lg py-4">
           <div className="container-custom flex flex-col space-y-4">
             <a 
               href="#how-it-works" 

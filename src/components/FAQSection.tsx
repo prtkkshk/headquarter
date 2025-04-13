@@ -39,19 +39,16 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="section-spacing relative">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-socl-accent/5 opacity-30"></div>
-      <div className="absolute -top-40 left-1/3 w-[300px] h-[300px] bg-gradient-radial-soft from-socl-accent/5 to-transparent blur-3xl"></div>
-      
       <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto">
-          <h2 className="heading-2 text-center mb-12 text-gradient">Frequently Asked Questions</h2>
+          <h2 className="heading-2 text-center mb-12 text-socl-accent">Frequently Asked Questions</h2>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className={`glass-effect rounded-lg overflow-hidden transition-all duration-300 backdrop-blur-md ${
-                  openIndex === index ? 'shadow-lg border border-socl-accent/20' : 'border border-socl-border/10'
+                className={`glass-card rounded-lg overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'shadow-lg border border-socl-accent/30' : 'border border-socl-border'
                 }`}
               >
                 <button
@@ -69,7 +66,7 @@ const FAQSection = () => {
                 </button>
                 
                 {openIndex === index && (
-                  <div className="px-6 pb-4 animate-accordion-down">
+                  <div className="px-6 pb-4">
                     <p className="text-socl-muted">{faq.answer}</p>
                   </div>
                 )}
