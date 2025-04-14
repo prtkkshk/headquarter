@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -6,7 +5,6 @@ import ProblemSection from "@/components/ProblemSection";
 import AboutSection from "@/components/AboutSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import FeaturesSection from "@/components/FeaturesSection";
-import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
 import FooterSection from "@/components/FooterSection";
 import BackgroundElements from "@/components/BackgroundElements";
@@ -35,8 +33,19 @@ const Index = () => {
 
     // Cursor glow effect
     const cursorGlow = document.createElement("div");
-    cursorGlow.classList.add("fixed", "w-64", "h-64", "rounded-full", "pointer-events-none", "z-0", 
-      "bg-gradient-radial", "from-socl-accent/5", "to-transparent", "opacity-0", "transition-opacity");
+    cursorGlow.classList.add(
+      "fixed",
+      "w-64",
+      "h-64",
+      "rounded-full",
+      "pointer-events-none",
+      "z-0",
+      "bg-gradient-radial",
+      "from-socl-accent/5",
+      "to-transparent",
+      "opacity-0",
+      "transition-opacity"
+    );
     document.body.appendChild(cursorGlow);
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -74,12 +83,12 @@ const Index = () => {
         <ProblemSection />
         <AboutSection />
         <HowItWorksSection />
-        <FeaturesSection />
-        <CTASection />
+        {/* <FeaturesSection /> */}
         <FAQSection />
       </main>
       <FooterSection />
     </div>
+    
   );
 };
 
