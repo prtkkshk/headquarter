@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface FAQItem {
@@ -32,44 +32,64 @@ const FAQSection = () => {
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    // Set up refs array
+    contentRefs.current = contentRefs.current.slice(0, faqs.length);
+  }, [faqs.length]);
+
   return (
     <section id="faq" className="section-spacing relative">
       <div className="container-custom relative z-10">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="heading-2 text-center mb-12 text-socl-accent">Frequently Asked Questions</h2>
+        <div className="max-w-3xl mx-auto animate-on-scroll">
+          <h2 className="heading-2 text-center mb-12 heading-gradient">Frequently Asked Questions</h2>
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className={`glass-card rounded-lg overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'shadow-lg border border-socl-accent/30' : 'border border-socl-border'
-                }`}
+                className={`glass-card overflow-hidden transition-all duration-500 ${
+                  openIndex === index 
+                    ? 'shadow-lg border border-socl-primary/30' 
+                    : 'border border-socl-border hover:border-socl-border/60'
+                } glow-effect ${openIndex === index ? 'glow-primary' : ''}`}
               >
                 <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                  className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none group"
                   onClick={() => toggleFAQ(index)}
                 >
-                  <span className={`font-semibold ${openIndex === index ? 'text-socl-accent' : 'text-socl-text'}`}>
+                  <span className={`font-semibold transition-colors duration-300 ${
+                    openIndex === index 
+                      ? 'bg-gradient-to-r from-socl-primary to-socl-accent bg-clip-text text-transparent' 
+                      : 'text-socl-text group-hover:text-white'
+                  }`}>
                     {faq.question}
                   </span>
-                  {openIndex === index ? (
-                    <ChevronUp size={20} className="text-socl-accent" />
-                  ) : (
-                    <ChevronDown size={20} className="text-socl-muted" />
-                  )}
+                  <div className={`transition-transform duration-300 ${
+                    openIndex === index ? 'rotate-180 text-socl-primary' : 'text-socl-muted'
+                  }`}>
+                    <ChevronDown size={20} className="transition-all duration-300" />
+                  </div>
                 </button>
                 
-                {openIndex === index && (
+                <div 
+                  ref={el => contentRefs.current[index] = el}
+                  className={`faq-content overflow-hidden transition-all duration-500 ease-in-out ${
+                    openIndex === index ? 'open' : ''
+                  }`}
+                  style={{
+                    maxHeight: openIndex === index ? `${contentRefs.current[index]?.scrollHeight}px` : '0px'
+                  }}
+                >
                   <div className="px-6 pb-4">
                     <p className="text-socl-muted">{faq.answer}</p>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
