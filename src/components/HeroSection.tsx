@@ -92,12 +92,12 @@ const HeroSection = () => {
           </div>
 
           <h1 className="heading-1 mb-6 heading-gradient animate-on-scroll">
-            A Private Space for Serious Builders to Get Honest, Structured
-            Feedback
+            A Private Space for Builders to Exchange Honest, Structured Feedback
           </h1>
 
           <p className="body-text mb-10 max-w-2xl mx-auto text-socl-muted animate-on-scroll">
-            Get expert insights from builders. Skip social media noise.
+            Give and get expert insights from fellow builders. Skip the social media
+            noise.
           </p>
 
           <div className="animate-on-scroll">
