@@ -26,12 +26,12 @@ const FAQSection = () => {
     {
       question: "What kind of products can I get feedback on?",
       answer:
-        "SOCL welcomes digital products of all kinds - SaaS, mobile apps, websites, tools, and more. As long as you're serious about building, we want to help you improve your product.",
+        "headquarter welcomes digital products of all kinds - SaaS, mobile apps, websites, tools, and more. As long as you're serious about building, we want to help you improve your product.",
     },
     {
       question: "How is hq different from other communities?",
       answer:
-        "hq focuses exclusively on structured feedback from verified builders. We're not a general discussion forum or social network, we're laser focused on helping you improve your product through quality feedback.",
+        "headquarter focuses exclusively on structured feedback from verified builders. We're not a general discussion forum or social network, we're laser focused on helping you improve your product through quality feedback.",
     },
   ];
 
