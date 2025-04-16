@@ -32,7 +32,7 @@ const FooterSection = () => {
               Terms of Service
             </a>
             <a
-              href="mailto:hellobuilder@joinhq.me"
+              href="mailto:hibuilder@joinhq.in"
               className="text-socl-muted hover:text-socl-accent transition-colors text-sm"
             >
               Contact Us
