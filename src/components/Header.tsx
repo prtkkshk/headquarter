@@ -86,7 +86,7 @@ const Header = () => {
             rel="noopener noreferrer"
             className="relative cta-button group overflow-hidden"
           >
-            <span className="relative z-10">Join the Waitlist</span>
+            <span className="relative z-10">Request Access</span>
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-socl-accent to-socl-primary"></div>
           </a>
         </nav>

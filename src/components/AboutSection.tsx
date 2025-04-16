@@ -42,7 +42,7 @@ const AboutSection = () => {
                 rel="noopener noreferrer"
                 className="group cta-button text-lg px-8 py-3 inline-block relative overflow-hidden"
               >
-                <span className="relative z-10">Join the Waitlist</span>
+                <span className="relative z-10">Request Access</span>
 
                 {/* Button hover effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-socl-accent to-socl-primary"></div>
