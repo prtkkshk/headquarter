@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -120,71 +121,80 @@ All colors MUST be HSL.
 }
 
 @layer base {
+  html {
+    font-size: 15px;
+  }
   * {
     @apply border-border;
+    font-family: 'Inter', system-ui, sans-serif;
   }
-
   body {
     @apply bg-background text-foreground;
+    /* Smooth, subtle multi-stop blue-to-purple gradient */
+    background: linear-gradient(120deg,
+      hsl(221.2 83.2% 98%) 0%,
+      hsl(221.2 83.2% 96%) 30%,
+      hsl(234 100% 97%) 60%,
+      hsl(262.1 83.3% 95%) 85%,
+      hsl(262.1 83.3% 92%) 100%
+    );
+    background-attachment: fixed;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl font-extrabold;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+  h4 {
+    @apply text-lg font-semibold;
   }
 }
 
 @layer components {
-  .icon-3d {
-    @apply relative transform-gpu transition-all duration-300 ease-out;
-    background: transparent;
-    transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  .icon-3d:hover {
-    transform: perspective(1000px) rotateX(15deg) rotateY(-15deg) translateY(-4px);
-  }
-  
   .feature-box {
-    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 transition-all duration-500 ease-out;
-    box-shadow: var(--shadow-card);
-    transform: translateY(0px);
+    @apply p-4 md:p-6 rounded-lg;
+    font-size: 0.97rem;
     opacity: 0;
-    animation: slideInUp 0.6s ease-out forwards;
+    transform: translateY(20px);
+    animation: featureBoxFadeIn 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
   }
-  
-  .feature-box:hover {
-    @apply border-primary/30;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px hsl(var(--primary) / 0.15), var(--shadow-card);
+  .feature-box-loaded {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .feature-emoji-bg {
+    @apply flex items-center justify-center;
+    background: linear-gradient(135deg, hsl(221.2 83.2% 99%), hsl(221.2 83.2% 92%), hsl(262.1 83.3% 97%));
+    box-shadow: 0 2px 8px hsl(221.2 83.2% 53.3% / 0.08);
+    border-radius: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .dark .feature-emoji-bg {
+    background: linear-gradient(135deg, hsl(217.2 91.2% 18%), hsl(217.2 91.2% 28%), hsl(262.1 83.3% 22%));
+    box-shadow: 0 2px 8px hsl(217.2 91.2% 59.8% / 0.12);
+  }
+  .feature-box-skeleton {
+    @apply bg-muted animate-pulse rounded-lg;
+    min-height: 180px;
+    width: 100%;
   }
 }
-
 @layer utilities {
-  @keyframes float {
-    0%, 100% { transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) translateY(0px); }
-    50% { transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) translateY(-6px); }
-  }
-  
-  @keyframes fadeInUp3D {
-    from {
-      opacity: 0;
-      transform: perspective(1000px) rotateX(45deg) rotateY(-30deg) translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) translateY(0px);
-    }
-  }
-  
-  .animate-fade-in-3d {
-    animation: fadeInUp3D 0.8s ease-out forwards;
-  }
-  
-  @keyframes slideInUp {
+  @keyframes featureBoxFadeIn {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
     to {
       opacity: 1;
-      transform: translateY(0px);
+      transform: none;
     }
   }
 }

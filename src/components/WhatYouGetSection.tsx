@@ -1,12 +1,18 @@
+import { useEffect, useState } from "react";
+import { Separator } from "@/components/ui/separator";
+import { Gift } from "lucide-react";
+
 const WhatYouGetSection = () => {
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => { setLoaded(true); }, []);
   const benefits = [
     {
-      emoji: "📄",
+      emoji: "📋",
       title: "A written report covering UX, positioning, clarity, and direction"
     },
     {
       emoji: "🎯",
-      title: "Specific, pointed suggestions — not generic \"this looks cool\" fluff"
+      title: "Specific, pointed suggestions, not generic 'this looks cool' fluff"
     },
     {
       emoji: "⏰",
@@ -15,27 +21,35 @@ const WhatYouGetSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-24 px-4 bg-white">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-foreground mb-4">What You Get</h2>
-        
-        <div className="space-y-8 mt-12">
+        <div className="flex flex-col items-center mb-4">
+          <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-2">
+            <Gift className="w-7 h-7 text-primary" />
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-2 tracking-tight flex items-center gap-2">
+            What You Get
+          </h2>
+        </div>
+        <Separator className="my-8 max-w-xs mx-auto bg-gradient-to-r from-transparent via-primary to-transparent opacity-40" />
+        <div className="grid md:grid-cols-3 gap-10 mt-12">
           {benefits.map((benefit, index) => (
-            <div key={index} className="feature-box" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="flex items-start gap-6 text-left max-w-2xl mx-auto">
-                <div className="w-14 h-14 icon-3d rounded-xl flex items-center justify-center flex-shrink-0 animate-fade-in-3d"
-                     style={{ animationDelay: `${index * 0.3}s` }}>
-                  <span className="text-2xl">{benefit.emoji}</span>
-                </div>
-                <div className="pt-2">
-                  <p className="text-lg text-foreground font-medium">{benefit.title}</p>
-                </div>
+            <div
+              key={index}
+              className={`feature-box bg-white/95 shadow-xl border border-border rounded-2xl p-8 flex flex-col items-center ${loaded ? 'feature-box-loaded' : ''}`}
+              style={{ transitionDelay: `${index * 80}ms` }}
+            >
+              <div className="feature-emoji-bg">
+                <span className="text-2xl">{benefit.emoji}</span>
               </div>
+              <p className="text-lg text-foreground font-medium text-center mt-2">{benefit.title}</p>
             </div>
           ))}
+          {!loaded && Array.from({length: 3}).map((_,i) => (
+            <div key={i} className="feature-box-skeleton" />
+          ))}
         </div>
-        
-        <p className="text-xl text-muted-foreground mt-12 font-medium">
+        <p className="text-xl text-muted-foreground mt-16 font-medium">
           You'll walk away knowing exactly what to fix or double down on.
         </p>
       </div>
