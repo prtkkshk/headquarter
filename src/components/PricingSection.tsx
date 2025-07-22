@@ -7,7 +7,7 @@ const PricingSection = () => {
   return (
     <section id="pricing" className="py-24 px-4 bg-white/90">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="flex flex-col items-center mb-4">
+        <div id="pricing-section-heading" className="flex flex-col items-center mb-4">
           <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-2">
             <Tag className="w-7 h-7 text-primary" />
           </span>

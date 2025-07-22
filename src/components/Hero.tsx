@@ -25,14 +25,15 @@ const Hero = () => {
           Just <span className="font-bold text-primary">₹1500</span>. No upsells, no nonsense — only insights that help you ship better.
         </p> */}
         <Button
-          asChild
           variant="cta"
           size="lg"
           className="mb-10 shadow-lg shadow-primary/20 hover:scale-105 transition-transform text-lg px-10 py-6"
+          onClick={() => {
+            const el = document.getElementById('pricing-section-heading');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
         >
-          <a href="https://form.typeform.com/to/zeKKt4Dm" target="_blank" rel="noopener noreferrer">
-            Review My MVP
-          </a>
+          Review My MVP
         </Button>
         {/* <div className="flex items-center justify-center gap-8 text-base text-muted-foreground mb-12">
           <div className="flex items-center gap-2">

@@ -61,14 +61,15 @@ const SolutionSection = () => {
           No fluff. No endless scrolling. Just honest, actionable feedback from people who've been in your shoes.
         </p>
         <Button
-          asChild
           variant="cta"
           size="lg"
           className="shadow-lg shadow-primary/20 hover:scale-105 transition-transform text-lg px-10 py-6"
+          onClick={() => {
+            const el = document.getElementById('pricing-section-heading');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
         >
-          <a href="https://form.typeform.com/to/zeKKt4Dm" target="_blank" rel="noopener noreferrer">
-            Submit Your Product
-          </a>
+          Submit Your Product
         </Button>
       </div>
     </section>
