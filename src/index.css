@@ -1,31 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 210 40% 96%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,17 +34,36 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221.2 83.2% 53.3%;
 
     --radius: 0.5rem;
 
+    /* Professional design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(221.2 83.2% 53.3%), hsl(262.1 83.3% 57.8%));
+    --gradient-secondary: linear-gradient(180deg, hsl(210 40% 98%), hsl(0 0% 100%));
+    --glow-primary: 0 0 20px hsl(221.2 83.2% 53.3% / 0.15);
+    --shadow-card: 0 4px 6px -1px hsl(220 14% 4% / 0.1), 0 2px 4px -2px hsl(220 14% 4% / 0.1);
+    
+    /* 3D Icon Effects */
+    --gradient-3d: linear-gradient(145deg, hsl(221.2 83.2% 58%), hsl(221.2 83.2% 48%));
+    --shadow-3d: 0 8px 16px hsl(221.2 83.2% 53.3% / 0.25), 0 4px 8px hsl(221.2 83.2% 53.3% / 0.15);
+    --shadow-3d-hover: 0 12px 24px hsl(221.2 83.2% 53.3% / 0.35), 0 6px 12px hsl(221.2 83.2% 53.3% / 0.25);
+    --glow-3d: 0 0 30px hsl(221.2 83.2% 53.3% / 0.4);
+
     --sidebar-background: 0 0% 98%;
+
     --sidebar-foreground: 240 5.3% 26.1%;
+
     --sidebar-primary: 240 5.9% 10%;
+
     --sidebar-primary-foreground: 0 0% 98%;
+
     --sidebar-accent: 240 4.8% 95.9%;
+
     --sidebar-accent-foreground: 240 5.9% 10%;
+
     --sidebar-border: 220 13% 91%;
+
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -57,7 +77,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -74,7 +94,20 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 217.2 91.2% 59.8%;
+
+    /* Professional dark theme tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(217.2 91.2% 59.8%), hsl(262.1 83.3% 57.8%));
+    --gradient-secondary: linear-gradient(180deg, hsl(217.2 32.6% 17.5%), hsl(222.2 84% 4.9%));
+    --glow-primary: 0 0 20px hsl(217.2 91.2% 59.8% / 0.3);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    
+    /* 3D Icon Effects - Dark Mode */
+    --gradient-3d: linear-gradient(145deg, hsl(217.2 91.2% 65%), hsl(217.2 91.2% 54%));
+    --shadow-3d: 0 8px 16px hsl(217.2 91.2% 59.8% / 0.4), 0 4px 8px hsl(217.2 91.2% 59.8% / 0.25);
+    --shadow-3d-hover: 0 12px 24px hsl(217.2 91.2% 59.8% / 0.5), 0 6px 12px hsl(217.2 91.2% 59.8% / 0.35);
+    --glow-3d: 0 0 30px hsl(217.2 91.2% 59.8% / 0.5);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -84,187 +117,74 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
 
-  html {
-    @apply font-manrope scroll-smooth;
-  }
-
   body {
-    @apply bg-socl-background text-socl-text font-manrope antialiased;
-    background-image: radial-gradient(
-        circle at 20% 30%,
-        rgba(168, 85, 247, 0.05) 0%,
-        transparent 30%
-      ),
-      radial-gradient(
-        circle at 80% 70%,
-        rgba(14, 165, 233, 0.05) 0%,
-        transparent 30%
-      );
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-manrope font-bold;
-  }
-
-  .heading-1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
-  }
-
-  .heading-2 {
-    @apply text-3xl md:text-4xl font-bold mb-6;
-  }
-
-  .heading-3 {
-    @apply text-2xl md:text-3xl font-bold mb-4;
-  }
-
-  .body-text {
-    @apply text-lg leading-relaxed text-socl-text/90 font-normal;
-  }
-
-  ::selection {
-    @apply bg-socl-primary/20 text-white;
+    @apply bg-background text-foreground;
   }
 }
 
 @layer components {
-  /* Layout and container styles */
-  .container-custom {
-    @apply w-full max-w-[1200px] mx-auto px-4 md:px-6;
+  .icon-3d {
+    @apply relative transform-gpu transition-all duration-300 ease-out;
+    background: transparent;
+    transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
+    animation: float 3s ease-in-out infinite;
   }
-
-  .section-spacing {
-    @apply py-16 md:py-24;
+  
+  .icon-3d:hover {
+    transform: perspective(1000px) rotateX(15deg) rotateY(-15deg) translateY(-4px);
   }
-
-  /* Typography styles */
-  .heading-gradient {
-    @apply bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent;
+  
+  .feature-box {
+    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 transition-all duration-500 ease-out;
+    box-shadow: var(--shadow-card);
+    transform: translateY(0px);
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out forwards;
   }
-
-  /* Button styles */
-  .cta-button {
-    @apply relative bg-gradient-to-r from-socl-primary to-socl-accent text-white font-semibold py-3 px-8 rounded-lg 
-      shadow-md hover:shadow-glow-primary transition-all duration-300 overflow-hidden;
-  }
-
-  .cta-button::before {
-    @apply content-[''] absolute inset-0 bg-gradient-to-r from-socl-accent to-socl-primary opacity-0 transition-opacity duration-300;
-  }
-
-  .cta-button:hover::before {
-    @apply opacity-100;
-  }
-
-  .cta-button span {
-    @apply relative z-10;
-  }
-
-  /* Card styles */
-  .glass-card {
-    @apply bg-socl-cardBg backdrop-blur-md border border-socl-border/30 rounded-xl;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-card;
-  }
-
-  /* Effect styles */
-  .glow-effect {
-    @apply relative;
-  }
-
-  .glow-effect::after {
-    @apply content-[''] absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 z-[-1];
-  }
-
-  .glow-effect:hover::after {
-    @apply opacity-100;
-  }
-
-  .glow-primary::after {
-    @apply shadow-glow-primary;
-  }
-
-  .glow-accent::after {
-    @apply shadow-glow-accent;
-  }
-
-  .glow-secondary::after {
-    @apply shadow-glow-secondary;
-  }
-
-  .glow-highlight::after {
-    @apply shadow-glow-highlight;
-  }
-
-  /* Animation triggers for scroll */
-  .animate-on-scroll {
-    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
-  }
-
-  .animate-on-scroll.animate-active {
-    @apply opacity-100 translate-y-0;
-  }
-
-  /* Geometric shapes */
-  .floating-circle {
-    @apply absolute rounded-full opacity-20;
-  }
-
-  .floating-square {
-    @apply absolute rounded-md opacity-20;
+  
+  .feature-box:hover {
+    @apply border-primary/30;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px hsl(var(--primary) / 0.15), var(--shadow-card);
   }
 }
 
-/* Floating elements animation */
-.animate-float-delay-1 {
-  animation-delay: 1s;
-}
-
-.animate-float-delay-2 {
-  animation-delay: 2s;
-}
-
-.animate-float-delay-3 {
-  animation-delay: 3s;
-}
-
-/* FAQ Animation */
-.faq-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.faq-content.open {
-  max-height: 300px;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.5);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 116, 139, 0.8);
+@layer utilities {
+  @keyframes float {
+    0%, 100% { transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) translateY(0px); }
+    50% { transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) translateY(-6px); }
+  }
+  
+  @keyframes fadeInUp3D {
+    from {
+      opacity: 0;
+      transform: perspective(1000px) rotateX(45deg) rotateY(-30deg) translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) translateY(0px);
+    }
+  }
+  
+  .animate-fade-in-3d {
+    animation: fadeInUp3D 0.8s ease-out forwards;
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
 }

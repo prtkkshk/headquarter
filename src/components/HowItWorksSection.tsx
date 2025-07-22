@@ -1,88 +1,52 @@
-import { Upload, MessageSquare, RefreshCw, Network } from "lucide-react";
-
 const HowItWorksSection = () => {
   const steps = [
     {
-      icon: <Upload className="text-white" size={24} />,
+      emoji: "📤",
       title: "Submit Your Product",
-      description: "Upload your MVP or prototype for review",
-      gradient: "from-socl-primary to-socl-accent",
+      description: "Upload your MVP link and basic details",
+      step: "Step 1"
     },
     {
-      icon: <MessageSquare className="text-white" size={24} />,
+      emoji: "💬",
       title: "Get Structured Feedback",
-      description: "Receive detailed actionable insights from builders",
-      gradient: "from-socl-primary to-socl-accent",
+      description: "Experienced builders review and analyze your product",
+      step: "Step 2"
     },
     {
-      icon: <RefreshCw className="text-white" size={24} />,
-      title: "Iterate & Improve",
-      description: "Implement changes and refine your product",
-      gradient: "from-socl-primary to-socl-accent",
+      emoji: "📄",
+      title: "Receive & Improve",
+      description: "Implement changes on detailed written feedback",
+      step: "Step 3"
     },
     {
-      icon: <Network className="text-white" size={24} />,
-      title: "Build Your Network",
-      description: "Connect with other serious product builders",
-      gradient: "from-socl-primary to-socl-accent",
-    },
+      emoji: "💡",
+      title: "Build Your Business",
+      description: "Continue building with clear confidence in product direction",
+      step: "Step 4"
+    }
   ];
 
   return (
-    <section
-      id="how-it-works"
-      className="py-24 relative bg-gradient-to-b from-socl-background/80 to-socl-background/80"
-    >
-      <div className="container-custom relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-white">How It Works</h2>
-          <p className="text-lg text-socl-text/80 max-w-2xl mx-auto">
-            A simple process to get the feedback you need
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+    <section id="how-it-works" className="py-20 px-4 bg-gradient-secondary">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-foreground mb-4">How It Works</h2>
+        <p className="text-xl text-muted-foreground mb-16">
+          A simple process to get the feedback you need
+        </p>
+        
+        <div className="grid md:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="group relative h-full">
-              {/* Connection line */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 left-full w-full h-px bg-socl-border/10 -translate-y-1/2 z-0"></div>
-              )}
-
-              <div className="bg-socl-cardBg/30 backdrop-blur-sm p-8 rounded-xl relative overflow-hidden transition-all duration-300 hover:translate-y-[-2px] z-10 h-full flex flex-col border border-socl-border/10 hover:border-socl-border/20">
-                {/* Content */}
-                <div className="relative z-10 flex flex-col flex-grow items-center text-center">
-                  <div className="w-12 h-12 bg-socl-primary rounded-lg flex items-center justify-center mb-5 shadow-sm">
-                    {step.icon}
-                  </div>
-                  <h3 className="text-base font-semibold mb-3 text-white">
-                    {step.title}
-                  </h3>
-                  <p className="text-socl-text/70 text-sm flex-grow">
-                    {step.description}
-                  </p>
-                  <div className="mt-4 text-xs font-medium text-socl-primary/60">
-                    Step {index + 1}
-                  </div>
-                </div>
+            <div key={index} className="feature-box text-center" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="w-20 h-20 icon-3d rounded-2xl flex items-center justify-center mx-auto mb-6 animate-fade-in-3d"
+                   style={{ animationDelay: `${index * 0.15}s` }}>
+                <span className="text-3xl">{step.emoji}</span>
               </div>
+              <div className="text-sm text-primary font-semibold mb-2">{step.step}</div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">{step.title}</h3>
+              <p className="text-muted-foreground">{step.description}</p>
             </div>
           ))}
         </div>
-        {/* <div className="mt-16 text-center">
-          <a
-            href="https://tally.so/r/mRrZ5K"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group cta-button text-xl px-10 py-4 inline-block relative overflow-hidden"
-          >
-            <span className="relative z-10">Join the Waitlist</span>
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-socl-accent to-socl-primary"></div>
-
-           
-            <div className="absolute -inset-1 bg-gradient-to-r from-socl-primary/20 to-socl-accent/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </a>
-        </div> */}
       </div>
     </section>
   );
